@@ -77,5 +77,6 @@ def get_me(
         "surname": user.surname,
         "email": user.email,
         "phone": user.phone,
+        "role": user.role,
         "balance": user.balance_cents / 100
     }

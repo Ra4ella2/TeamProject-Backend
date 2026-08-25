@@ -50,6 +50,7 @@ class AuthService:
             email=email,
             password_hash=password_hash,
             phone=phone,
+            role="USER",
             balance_cents=0
         )
 
@@ -78,7 +79,8 @@ class AuthService:
                 "surname": user.surname,
                 "email": user.email,
                 "phone": user.phone,
-                "balance": 0
+                "role": user.role,
+                "balance": user.balance_cents / 100
             }
         }, 201
 
@@ -120,6 +122,7 @@ class AuthService:
                 "surname": user.surname,
                 "email": user.email,
                 "phone": user.phone,
+                "role": user.role,
                 "balance": user.balance_cents / 100
             }
         }, 200

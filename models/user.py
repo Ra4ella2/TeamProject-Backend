@@ -7,11 +7,13 @@ from db import Base
 
 class User(Base):
     __tablename__ = "users"
-    id = Column(Integer,primary_key=True)
-    name = Column(String(100),nullable=False)
-    surname = Column(String(100),nullable=False)
-    email = Column(String(150),unique=True,nullable=False)
-    password_hash = Column(String(255),nullable=False)
-    phone = Column(String(20),nullable=True)
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(100), nullable=False)
+    surname = Column(String(100), nullable=False)
+    email = Column(String(150), unique=True, nullable=False)
+    password_hash = Column(String(255), nullable=False)
+    phone = Column(String(20), nullable=True)
+    role = Column(String(20),nullable=False,default="USER")
     balance_cents = Column(Integer,nullable=False,default=0)
     created_at = Column(DateTime,nullable=False,default=datetime.utcnow)
