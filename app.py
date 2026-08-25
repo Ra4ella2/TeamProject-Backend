@@ -1,12 +1,14 @@
 from fastapi import FastAPI
 
 from db import init_db
+
 from models.user import User
 from models.transaction import Transaction
 
 from routes.auth_routes import router as auth_router
 from routes.wallet_routes import router as wallet_router
 from routes.transaction_routes import router as transaction_router
+from routes.admin_routes import router as admin_router
 
 
 app = FastAPI(
@@ -28,6 +30,10 @@ app.include_router(
 
 app.include_router(
     transaction_router
+)
+
+app.include_router(
+    admin_router
 )
 
 
