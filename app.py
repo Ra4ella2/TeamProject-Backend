@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 
+from fastapi.middleware.cors import CORSMiddleware
+
 from db import init_db
 
 from models.user import User
@@ -14,6 +16,14 @@ from routes.admin_routes import router as admin_router
 app = FastAPI(
     title="FinTech Wallet",
     version="1.0.0"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
